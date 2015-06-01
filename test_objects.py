@@ -79,7 +79,7 @@ def test_object_relationships():
     # NOTE: To test that it really works, you probably want to create a Menu
     # with a list that includes things that *aren't* desserts, like integers.
 
-    assert False  # Take this line out, it forces the test to fail
+    # assert False  # Take this line out, it forces the test to fail
 
     # Create a cakes() method that does the same thing.
     # This code is the test for cakes():
@@ -89,11 +89,18 @@ def test_object_relationships():
     dessert3 = Dessert(price=13)
     cake1 = Cake(kind='sponge')
     cake2 = Cake(kind='birthday')
-    my_desserts = [dessert1, dessert2, dessert3, cake1, cake2]
+    not_a_cake1 = 15
+    not_a_cake2 = 20
+    not_a_cake3 = 25
+    not_a_cake4 = 30
+    not_a_cake5 = 35
+    my_desserts = [dessert1, dessert2, dessert3, cake1, cake2, not_a_cake1, not_a_cake2, not_a_cake3, not_a_cake4, not_a_cake5]
     my_menu = Menu(my_desserts)
     cakes = my_menu.cakes()
+    desserts = my_menu.desserts()
     # There should only be two items in cakes!
     assert len(cakes) == 2
+    assert len(desserts) == 5 
     # The cakes should be sponge and birthday
     assert sorted([c.kind for c in cakes]) == ['birthday', 'sponge']
 
